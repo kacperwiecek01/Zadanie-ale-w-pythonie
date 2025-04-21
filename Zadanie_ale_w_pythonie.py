@@ -36,11 +36,40 @@ def konwersja_temperatur():
     else:
         print("Nieprawidlowy wybor. Wybierz C lub F.")
 
+def srednia_ocen():
+    try: 
+        liczba = int(input("Ile chcesz ocen wprowadzic?"))
+        suma = 0
+
+        for i in range (1, liczba + 1):
+            while True:
+
+                try:
+                    ocena = float(input(f"Podaj ocene {i} od 1 - 6: "))
+                    if 1 <= ocena <= 6:
+                        suma += ocena
+                        break
+                    else:
+                        print("Ocena musi byc w zakresie 1-6")
+                except ValueError:
+                        print("Podano nieprawidlowa wartosc")
+
+
+        srednia = suma / liczba
+        print(f"Srednia: {srednia:.2f}")
+        
+        if srednia >= 3.0:
+            print("Uczen zdal")
+        else:
+            print("Uczen nie zdal")
+    except ValueError:
+            print("Podano nieprawidlowa liczbe ocen")
 def main ():
     while True:
         print("\n--Menu--")
         print("1. Kalkulator")
         print("2. Konwersja temperatury")
+        print("3. Srednia ocen")
         print("0. Wyjscie")
 
         choice = input("Wybierz zadanie: ")
@@ -49,6 +78,8 @@ def main ():
             kalkulator()
         elif choice == "2":
             konwersja_temperatur()
+        elif choice == "3":
+            srednia_ocen()
         elif choice == "0":
             print ("zamykanie programu...")
             break
