@@ -11,21 +11,19 @@ def kalkulator():
         elif operacja == "*":
             wynik = a * b
         elif operacja == "/":
-            if b == 0:
-                print ("Uwaga! Nie mozna dzielic przez zero!")
-                return
-            wynik = a / b
+            if b != 0:
+                print (f"Wynik: {a / b}")
+            else: 
+                print ("Nie mozna dzielic przez zero!")
         else: 
             print("Nieznana operacja")
             return
-        
-        print (f"wynik: {wynik}")
     except ValueError: 
         print (" Uwaga! Podano nieprawidlowa wartosc.")
 
 def konwersja_temperatur():
 
-    wybor = input ("Wybierz kierunek oknwersji (C- Celsujsz -> Fahrenheit, F - Farhenheit -> Celsjusz): ")
+    wybor = input("Wybierz kierunek oknwersji (C- Celsujsz -> Fahrenheit, F - Farhenheit -> Celsjusz): ")
 
     if wybor == "C":
         celsjusz = float(input ("Podaj temperature w C:"))
@@ -37,7 +35,6 @@ def konwersja_temperatur():
         print(f"{Farheneit}F = {celsjusz:.2f}C")
     else:
         print("Nieprawidlowy wybor. Wybierz C lub F.")
-konwersja_temperatur()
 
 def main ():
     while True:
